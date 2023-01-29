@@ -44,7 +44,7 @@ func (v Validate) ValidateTable(table [][]string) bool {
 	for i, value := range table[1:] {
 		ok := re.MatchString(value[0])
 		if !ok {
-			log.Println("Incorrect line numbering: ", i, "Value: ", value)
+			log.Println("Incorrect line numbering, line: ", i+1, "Value: ", value[0])
 			return false
 		}
 		for i2, v2 := range value {
