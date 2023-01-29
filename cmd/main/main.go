@@ -5,18 +5,26 @@ import (
 	"csv_solver/internal/table"
 	"csv_solver/internal/validation"
 	"encoding/csv"
+	"flag"
 	"fmt"
 	"log"
 	"os"
 )
 
+var fileArg = flag.String("file", "", "file-name")
+
 func main() {
-	fmt.Println("Write file name Example: test.csv\nThe file must be located in the root directory of the project")
+	flag.Parse()
 	var fileName string
-	_, err := fmt.Scan(&fileName)
-	if err != nil {
-		log.Println(err)
-		return
+	if *fileArg == "" {
+		fmt.Println("Write file name Example: test.csv\nThe file must be located in the root directory of the project")
+		_, err := fmt.Scan(&fileName)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+	} else {
+		fileName = *fileArg
 	}
 
 	validate := validation.Validate{}

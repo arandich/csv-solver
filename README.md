@@ -16,6 +16,9 @@ go test tests/csv_test.go -v
 ## To run program, write to the console
 ````
 go run cmd/main/main.go
+
+you can provide arguments, where -file test.csv
+go run cmd/main/main.go -file test.csv
 ````
 ## You can compile a binary file using this command
 ````
