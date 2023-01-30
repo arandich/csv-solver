@@ -39,7 +39,7 @@ func main() {
 		log.Println(err)
 		return
 	}
-
+	defer file.Close()
 	reader := csv.NewReader(file)
 	reader.Comma = ','
 
@@ -48,8 +48,6 @@ func main() {
 		log.Println("Incorrect table")
 		return
 	}
-
-	file.Close()
 
 	ok = validate.ValidateTable(tableCsv)
 	if !ok {
